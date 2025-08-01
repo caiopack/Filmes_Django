@@ -1,11 +1,11 @@
 {% load django_bootstrap5 %}
 
-<html lang="pt-BR">
+<!DOCTYPE html>
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catálogo de Filmes</title>
-
     {% bootstrap_css %}
 </head>
 <body>
@@ -18,9 +18,13 @@
 
     <main class="container">
         <div class="pb-2 mb-2 border-bottom">
-            <h2>{% block page_header %}{% endblock page_header%}</h2>
+            <h2>{% block page_header %}{% endblock page_header %}</h2>
+        </div>
+        <div>
+            {% block content %}{% endblock content %}
         </div>
     </main>
-        {% bootstrap_javascript %}
+
+    {% bootstrap_javascript %}
 </body>
 </html>

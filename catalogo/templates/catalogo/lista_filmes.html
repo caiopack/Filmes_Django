@@ -1,21 +1,26 @@
 {% extends "catalogo/base.html" %}
+{% load django_bootstrap5 %}
 
 {% block page_header %}
     Meus Filmes Assistidos
 {% endblock page_header %}
 
 {% block content %}
-    <ul>
+    <p>
+        <a href="{% url 'catalogo:novo_filme' %}" class="btn btn-primary">Adicionar Filme</a>
+    </p>
+
+    <ul class="list-unstyled">
         {% for filme in filmes %}
-        <li class="mb-3">
-            <h4>{{ filme.titulo }}</h4>
-            <p>
-                <strong>Diretor:</strong> {{ filme.diretor }} <br>
-                <strong>Ano de lançamento:</strong> {{ filme.ano_lancamento }} <br>
-            </p>
-        </li>
+            <li class="mb-3 p-3 border rounded">
+                <h4>{{ filme.titulo }}</h4>
+                <p>
+                    <strong>Diretor:</strong> {{ filme.diretor }} <br>
+                    <strong>Ano de lançamento:</strong> {{ filme.ano_lancamento }}
+                </p>
+            </li>
         {% empty %}
-        <li>Não há filmes cadastrado... Ainda!</li>
+            <li class="alert alert-info">Não há filmes cadastrados... Ainda!</li>
         {% endfor %}
     </ul>
 {% endblock content %}

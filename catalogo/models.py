@@ -6,7 +6,7 @@ from django.utils import timezone
 class Filme(models.Model):
     """Um modelo pra representar um filme que o usuário assistiu."""
     titulo = models.CharField(max_length=200)
-    titulo = models.CharField(max_length=100)
+    diretor = models.CharField(max_length=100)
     ano_lancamento = models.IntegerField()
     sinopse = models.TextField()
     data_cadastro = models.DateTimeField(default=timezone.now)
