@@ -1,0 +1,21 @@
+{% extends "catalogo/base.html" %}
+
+{% block page_header %}
+    Meus Filmes Assistidos
+{% endblock page_header %}
+
+{% block content %}
+    <ul>
+        {% for filme in filmes %}
+        <li class="mb-3">
+            <h4>{{ filme.titulo }}</h4>
+            <p>
+                <strong>Diretor:</strong> {{ filme.diretor }} <br>
+                <strong>Ano de lançamento:</strong> {{ filme.ano_lancamento }} <br>
+            </p>
+        </li>
+        {% empty %}
+        <li>Não há filmes cadastrado... Ainda!</li>
+        {% endfor %}
+    </ul>
+{% endblock content %}
