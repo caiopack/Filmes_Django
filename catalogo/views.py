@@ -33,3 +33,12 @@ def editar_filme(request, filme_id):
             return redirect('catalogo:lista_filmes')
     context = {'filme': filme, 'form': form}
     return render(request, 'catalogo/editar_filme.html', context)
+
+def apagar_filme(request, filme_id):
+    """Apaga um filme existente."""
+    filme = Filme.objects.get(id=filme_id)
+    if request.method == 'POST':
+        filme.delete()
+        return redirect('catalogo:lista_filmes')
+    context = {'filme': filme}
+    return render(request, 'catalogo/apagar_filme.html', context)

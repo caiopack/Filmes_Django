@@ -15,6 +15,7 @@
             <li class="mb-3 p-3 border rounded">
                 <h4>{{ filme.titulo }}
                     <a href="{% url 'catalogo:editar_filme'  filme.id %}" class="btn btn-sm btn-secondary float-right">Editar</a>
+                    <a href="{% url 'catalogo:apagar_filme'  filme.id %}" class="btn btn-sm btn-danger float-right mr-2">Apagar</a>
                 </h4>
                 <p>
                     <strong>Diretor:</strong> {{ filme.diretor }} <br>

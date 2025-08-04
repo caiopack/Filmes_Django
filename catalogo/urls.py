@@ -23,5 +23,5 @@ urlpatterns = [
     path('', views.lista_filmes, name='lista_filmes'),
     path('novo_filme/', views.novo_filme, name='novo_filme'),
     path('editar/<int:filme_id>/', views.editar_filme, name='editar_filme'),
-    #path('apagar/<int:filme_id>/', views.apagar_filme, name='apagar_filme'),
+    path('apagar/<int:filme_id>/', views.apagar_filme, name='apagar_filme'),
 ]
