@@ -5,7 +5,7 @@
     Adicionar Novo Filme
 {% endblock page_header %}
 
-
+{% block content %}
     <form method="post">
         {% csrf_token %}
         {% bootstrap_form form %}

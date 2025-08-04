@@ -20,3 +20,16 @@ def novo_filme(request):
     
     contexto = {'form': form}
     return render(request, 'catalogo/novo_filme.html', contexto)
+
+def editar_filme(request, filme_id):
+    """Edita um filme existente."""
+    filme = Filme.objects.get(id=filme_id)
+    if request.method != 'POST':
+        form = FilmeForm(instance=filme)
+    else:
+        form = FilmeForm(instance=filme, data=request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('catalogo:lista_filmes')
+    context = {'filme': filme, 'form': form}
+    return render(request, 'catalogo/editar_filme.html', context)

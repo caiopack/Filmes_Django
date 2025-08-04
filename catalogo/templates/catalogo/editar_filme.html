@@ -1,0 +1,15 @@
+{% extends "catalogo/base.html" %}
+{% load django_bootstrap5 %}
+
+{% block page_header %}
+    Editar Filme
+{% endblock page_header %}
+
+{% block content %}
+    <form action="{% url 'catalogo:editar_filme' filme.id %}" method="post">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        {% bootstrap_button button_type="submit" content="Salvar Alterações" %}
+        <a href="{% url 'catalogo:lista_filmes' %}" class="btn - btn-secondary">Voltar</a>
+    </form>
+{% endblock content %}

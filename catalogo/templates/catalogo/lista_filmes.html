@@ -13,7 +13,9 @@
     <ul class="list-unstyled">
         {% for filme in filmes %}
             <li class="mb-3 p-3 border rounded">
-                <h4>{{ filme.titulo }}</h4>
+                <h4>{{ filme.titulo }}
+                    <a href="{% url 'catalogo:editar_filme'  filme.id %}" class="btn btn-sm btn-secondary float-right">Editar</a>
+                </h4>
                 <p>
                     <strong>Diretor:</strong> {{ filme.diretor }} <br>
                     <strong>Ano de lançamento:</strong> {{ filme.ano_lancamento }}
