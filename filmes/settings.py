@@ -133,3 +133,7 @@ LOGIN_URL = '/usuarios/login'
 
 # Redirecionamento para home
 LOGIN_REDIRECT_URL = '/'
+
+#Configurações de arquivos de mídia
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
