@@ -1,0 +1,21 @@
+{% extends "catalogo/base.html" %}
+{% load django_bootstrap5 %}
+
+{% block page_header %}
+    Faça login na sua conta
+{% endblock page_header %}
+
+{% block content %}
+
+    {% if form.errors %}
+        <p class="alert alert-danger">
+            Seu nome de usuário e (ou) senha não correspondem.
+        </p>
+    {% endif %}
+
+    <form method="post" action="{% url 'usuarios:login' %}">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        {% bootstrap_button button_type="submit" content="Login" %}
+    </form>
+{% endblock content %}

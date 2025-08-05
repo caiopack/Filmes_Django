@@ -40,7 +40,7 @@ INSTALLED_APPS = [
 
     #app
     'catalogo',
-    'usuarios'
+    'usuarios',
 
     #third party apps
     'django_bootstrap5',
@@ -130,3 +130,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # URL Padrão de login do projeto
 LOGIN_URL = '/usuarios/login'
+
+# Redirecionamento para home
+LOGIN_REDIRECT_URL = '/'
