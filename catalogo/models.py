@@ -12,6 +12,7 @@ class Filme(models.Model):
     sinopse = models.TextField()
     data_cadastro = models.DateTimeField(default=timezone.now)
     usuario = models.ForeignKey(User, on_delete=models.CASCADE)
+    poster = models.ImageField(upload_to='posters/', blank=True, null=True)
 
     def __str__(self):
         """Retorna uma representação legível do título do filme."""
