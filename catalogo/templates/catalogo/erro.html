@@ -1,0 +1,15 @@
+{% extends "catalogo/base.html" %}
+{% load django_bootstrap5 %}
+{% load static %}
+
+{% block page_header %}
+    Acesso Negado
+{% endblock page_header %}
+
+{% block content %}
+    <div class="container text-center">
+        <img src="{% static 'images/sackboy_explodindo.jpg' %}" class="img-fluid mb-4" style="max-width: 300px;" alt="Acesso Negado">
+        <h2 class="display-5">Não tem nada para ver por aqui...</h2>
+        <p class="lead">Você não tem permissão para acessar essa página.</p>
+    </div>       
+{% endblock content %}

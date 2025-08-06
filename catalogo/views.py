@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from django.http import Http404
 from .models import Filme
 from .forms import FilmeForm
 
@@ -32,7 +31,7 @@ def editar_filme(request, filme_id):
     """Edita um filme existente."""
     filme = Filme.objects.get(id=filme_id)
     if filme.usuario != request.user:
-        raise Http404
+        return render (request, 'catalogo/erro.html')
 
     if request.method != 'POST':
         form = FilmeForm(instance=filme)
@@ -50,7 +49,7 @@ def apagar_filme(request, filme_id):
     """Apaga um filme existente."""
     filme = Filme.objects.get(id=filme_id)
     if filme.usuario != request.user:
-        raise Http404
+        return render (request, 'catalogo/erro.html')
     
     if request.method == 'POST':
         filme.delete()
