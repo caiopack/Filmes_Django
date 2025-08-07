@@ -6,10 +6,13 @@
 {% endblock page_header %}
 
 {% block content %}
-    <div class="row">
-        <div class="col-md-4">
-            <img src="{{ filme.poster.url }}" class="img-fluid" alt="Poster {{ filme.titulo }}">
+    {% if filme.poster %}
+        <div class="row">
+            <div class="col-md-4">
+                <img src="{{ filme.poster.url }}" class="img-fluid" alt="Poster {{ filme.titulo }}">
         </div>
+    {% endif %}  
+        
         <div class="col-md-8">
             <h3>{{ filme.titulo }} ({{ filme.ano_lancamento }})</h3>
             <p><strong>Diretor:</strong> {{ filme.diretor }} </p>
