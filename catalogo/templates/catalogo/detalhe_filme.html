@@ -1,0 +1,22 @@
+{% extends "catalogo/base.html" %}
+{% load django_bootstrap5 %}
+
+{% block page_header %}
+    {{ filme.titulo }}
+{% endblock page_header %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-4">
+            <img src="{{ filme.poster.url }}" class="img-fluid" alt="Poster {{ filme.titulo }}">
+        </div>
+        <div class="col-md-8">
+            <h3>{{ filme.titulo }} ({{ filme.ano_lancamento }})</h3>
+            <p><strong>Diretor:</strong> {{ filme.diretor }} </p>
+            <hr>
+            <h4>Sinopse</h4>
+            <p>{{ filme.sinopse|linebreaks }}</p>
+            <a href="{% url 'catalogo:lista_filmes' %}" class="btn btn-secondary mt-3">Voltar</a>
+        </div>
+    </div>
+{% endblock content %}

@@ -56,3 +56,13 @@ def apagar_filme(request, filme_id):
         return redirect('catalogo:lista_filmes')
     context = {'filme': filme}
     return render(request, 'catalogo/apagar_filme.html', context)
+
+@login_required
+def detalhe_filme(request, filme_id):
+    """Detalhes de um filme existente."""
+    filme = Filme.objects.get(id=filme_id)
+    if filme.usuario != request.user:
+        return render (request, 'catalogo/erro.html')
+    
+    context = {'filme': filme}
+    return render(request, 'catalogo/detalhe_filme.html', context)

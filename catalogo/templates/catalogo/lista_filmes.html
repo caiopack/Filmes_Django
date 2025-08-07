@@ -16,7 +16,9 @@
                 <div class="row">
                     {% if filme.poster %}
                     <div class="col-md-3">
-                        <img src="{{ filme.poster.url }}" class="img-fluid rounded" alt="{{ filme.titulo }}">
+                        <a href="{% url 'catalogo:detalhe_filme' filme.id %}">
+                            <img src="{{ filme.poster.url }}" class="img-fluid rounded" alt="{{ filme.titulo }}">
+                        </a>
                     </div>
                     {% endif %}
                     <h4>{{ filme.titulo }}
@@ -27,6 +29,7 @@
                         <strong>Diretor:</strong> {{ filme.diretor }} <br>
                         <strong>Ano de lançamento:</strong> {{ filme.ano_lancamento }}
                     </p>
+                    <small class="text-muted">Assistido em {{ filme.data_cadastro|date:"d/m/Y, H:i" }}</small>
                 </div>
             </li>
         {% empty %}
